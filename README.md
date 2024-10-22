@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeatherWatch
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project implements a real-time data processing system for monitoring weather conditions across major metros in India. The system retrieves weather data from the OpenWeatherMap API at configurable intervals, processes the data to generate daily summaries, and provides alert notifications based on user-defined thresholds.
+
+## Features
+
+-   Real-time weather data retrieval for selected cities
+-   Configurable update intervals for data fetching
+-   Daily summary generation with average, maximum, and minimum temperatures
+-   Alert notifications for extreme weather conditions based on user-defined thresholds
+-   User-friendly interface for selecting cities and viewing weather comparisons
+
+## Technologies Used
+
+-   **Frontend**: Next.js, Tailwind CSS
+-   **Data Source**: OpenWeatherMap API
+
+## Installation
+
+### Prerequisites
+
+-   Node.js (v14 or higher)
+-   Docker (optional, for containerization)
+
+### Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ayuugoyal/weatherwatch.git
+cd weatherwatch
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Start the development server
 
-## Learn More
+```bash
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can configure the following environment variables in the `.env` or `.env.local` file:
 
-## Deploy on Vercel
+-   `NEXT_PUBLIC_OPENWEATHER_API_KEY`: Your API key for OpenWeatherMap.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### User Settings
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Users can set their preferences for:
+
+-   Temperature unit (Celsius/Fahrenheit)
+-   Update interval (in minutes)
+-   Alert threshold (in °C)
