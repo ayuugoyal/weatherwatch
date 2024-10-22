@@ -35,7 +35,7 @@ import { Label } from "@/components/ui/label";
 import { AlertCircle, Loader2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
+import { toast } from "sonner";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -142,6 +142,7 @@ export default function WeatherDashboard() {
         const todayData = data.filter(
             (item) => new Date(item.dt * 1000).toDateString() === today
         );
+        toast("fetch new weather report");
 
         if (todayData.length > 0) {
             const avgTemp =
