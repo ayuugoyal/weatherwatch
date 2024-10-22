@@ -121,6 +121,7 @@ export default function WeatherDashboard() {
             updateDailySummaries(newWeatherData);
             checkAlerts(newWeatherData);
             setLoading(false);
+            toast("fetch new weather report");
         } catch (err) {
             console.error(err);
             setError("Failed to fetch weather data");
@@ -142,7 +143,6 @@ export default function WeatherDashboard() {
         const todayData = data.filter(
             (item) => new Date(item.dt * 1000).toDateString() === today
         );
-        toast("fetch new weather report");
 
         if (todayData.length > 0) {
             const avgTemp =
